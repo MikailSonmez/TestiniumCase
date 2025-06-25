@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="7.411" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Trello Board and Card API Operations" name="Create board, add cards, update and delete" time="7.305">
+<system-out><![CDATA[
+Given the Trello API key and token are configured...........................passed
+When a new board is created via Trello API..................................passed
+And two cards are added to the board........................................passed
+And one of the cards is randomly selected and updated.......................passed
+Then all created cards are deleted..........................................passed
+And the board is deleted....................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

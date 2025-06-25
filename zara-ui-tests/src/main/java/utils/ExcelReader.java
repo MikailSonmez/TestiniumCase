@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class ExcelReader {
 
-    private Workbook workbook;
+    private static Workbook workbook;
 
     public ExcelReader(String fileNameInResources) {
         try {
@@ -20,11 +20,11 @@ public class ExcelReader {
         }
     }
 
-    public String getCellData(int rowNum, int colNum) {
+    public static String getCellData(int rowNum, int colNum) {
         return getCellData("Sheet1", rowNum, colNum);
     }
 
-    public String getCellData(String sheetName, int rowNum, int colNum) {
+    public static String getCellData(String sheetName, int rowNum, int colNum) {
         try {
             Sheet sheet = workbook.getSheet(sheetName);
             if (sheet == null) return null;

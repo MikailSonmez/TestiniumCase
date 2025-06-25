@@ -20,8 +20,7 @@ public class TrelloSteps {
 
     @Given("the Trello API key and token are configured")
     public void apiKeyAndTokenConfigured() {
-        // Usually configuration handled in utils.TokenManager and ApiUtils
-        // This step can be empty or used to verify config
+
     }
 
     @When("a new board is created via Trello API")
@@ -82,7 +81,7 @@ public class TrelloSteps {
         boardId = null;
     }
 
-    // Helper method to get default list id (usually the first list on the board)
+
     private String getDefaultListId(String boardId) {
         Response response = ApiUtils.getRequestSpec()
                 .get("/boards/" + boardId + "/lists");

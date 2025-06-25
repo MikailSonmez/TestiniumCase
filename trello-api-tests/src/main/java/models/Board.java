@@ -10,7 +10,7 @@ public class Board {
         this.name = name;
     }
 
-    // getter-setter
+
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 

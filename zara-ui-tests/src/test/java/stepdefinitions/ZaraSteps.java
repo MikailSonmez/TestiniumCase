@@ -3,8 +3,10 @@ package stepdefinitions;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.ProductPage;
 import pages.CartPage;
+import utils.ConfigReader;
 import utils.DriverManager;
 import utils.ExcelReader;
 
@@ -21,16 +23,58 @@ public class ZaraSteps {
     String productName;
     String productPrice;
 
-    @Given("the user navigates to {string}")
-    public void the_user_navigates_to(String url) {
-        driver.get(url);
+    @Given("the user navigates to the Zara website")
+    public void the_user_navigates_to_the_Zara_website() {
+        String baseUrl = ConfigReader.get("baseUrl");
+        WebDriver driver = DriverManager.getDriver();
+        driver.manage().window().maximize();
+        driver.get(baseUrl);
+
+    }
+    @And("accepts cookies")
+    public void acceptsCookies() {
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.acceptCookies();
     }
 
-    @When("the user searches for the word read from Excel cell \(row: {int}, col: {int})")
+    @When("the user logs in with valid credentials")
+    public void theUserLogsInWithValidCredentials() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(DriverManager.getDriver());
+        loginPage.login("test44584458@gmail.com", "123Test123..");
+    }
+
+    @And("clicks on the menu and selects \"Men\" -> \"See All\"")
+    public void clicksOnTheMenuAndSelectsMenSeeAll() {
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.clickMenuAndSelectCategory();  // Parametresiz olacak şekilde aşağıda yazılacak
+    }
+
+    @And("clears the search box")
+    public void clearsTheSearchBox() {
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.clearSearchBox();
+    }
+
+    @And("searches for the second word from Excel cell \\(row: {int}, col: {int})")
+    public void searchesForTheSecondWordFromExcelCell(int row, int col) {
+        String keyword = ExcelReader.getCellData(row, col);  // senin util sınıfında var
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.search(keyword);
+    }
+
+    @And("presses the \"Enter\" key")
+    public void pressesTheEnterKey() {
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.pressEnterOnSearchBox();  // Aşağıda eklenecek
+    }
+
+
+    @When("the user searches for the word read from Excel cell row {int} col {int}")
     public void search_from_excel(int row, int col) {
         String keyword = ExcelReader.getCellDataFromResources("testdata.xlsx", row, col);
         homePage.search(keyword);
     }
+
 
     @When("selects a random product from the results")
     public void selects_random_product() {

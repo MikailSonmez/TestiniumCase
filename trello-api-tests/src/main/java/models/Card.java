@@ -12,7 +12,7 @@ public class Card {
         this.idList = idList;
     }
 
-    // getter-setter
+
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 

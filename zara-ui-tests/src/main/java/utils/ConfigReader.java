@@ -14,11 +14,11 @@ public class ConfigReader {
             properties.load(fis);
             fis.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("config.properties file not found or couldn't be loaded");
         }
     }
 
-    public static String getProperty(String key) {
+    public static String get(String key) {
         return properties.getProperty(key);
     }
 }

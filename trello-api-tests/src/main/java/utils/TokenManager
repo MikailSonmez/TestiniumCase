@@ -1,6 +1,0 @@
-package utils;
-
-public class TokenManager {
-    public static final String KEY = "your-api-key";
-    public static final String TOKEN = "your-token";
-}

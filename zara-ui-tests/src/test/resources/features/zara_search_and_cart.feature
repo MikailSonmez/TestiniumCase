@@ -1,10 +1,11 @@
 Feature: Zara Product Search and Cart Management
 
   Scenario: Search shorts and shirts and add to cart
-    Given the user navigates to "https://www.zara.com/tr/"
+    Given the user navigates to the Zara website
+    And accepts cookies
     When the user logs in with valid credentials
     And clicks on the menu and selects "Men" -> "See All"
-    And the user searches for the word read from Excel cell (row: 0, col: 0)
+    When the user searches for the word read from Excel cell row 0 col 0
     And clears the search box
     And searches for the second word from Excel cell (row: 0, col: 1)
     And presses the "Enter" key

@@ -8,6 +8,8 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         if (driver == null) {
+            String driverPath = ConfigReader.get("chromeDriverPath");
+            System.setProperty("webdriver.chrome.driver", driverPath);
             driver = new ChromeDriver();
         }
         return driver;
