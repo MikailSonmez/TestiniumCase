@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "zara-ui-tests/src/test/java",
+        "zara-ui-tests/src/main/java",
+        "zara-ui-tests"
+    ]
+}

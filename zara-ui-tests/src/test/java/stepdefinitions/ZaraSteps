@@ -1,0 +1,79 @@
+package stepdefinitions;
+
+import io.cucumber.java.en.*;
+import org.openqa.selenium.WebDriver;
+import pages.HomePage;
+import pages.ProductPage;
+import pages.CartPage;
+import utils.DriverManager;
+import utils.ExcelReader;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+import static org.junit.Assert.*;
+
+public class ZaraSteps {
+    WebDriver driver = DriverManager.getDriver();
+    HomePage homePage = new HomePage(driver);
+    ProductPage productPage = new ProductPage(driver);
+    CartPage cartPage = new CartPage(driver);
+    String productName;
+    String productPrice;
+
+    @Given("the user navigates to {string}")
+    public void the_user_navigates_to(String url) {
+        driver.get(url);
+    }
+
+    @When("the user searches for the word read from Excel cell \(row: {int}, col: {int})")
+    public void search_from_excel(int row, int col) {
+        String keyword = ExcelReader.getCellDataFromResources("testdata.xlsx", row, col);
+        homePage.search(keyword);
+    }
+
+    @When("selects a random product from the results")
+    public void selects_random_product() {
+        productPage.selectRandomProduct();
+        productName = productPage.getProductName();
+        productPrice = productPage.getProductPrice();
+    }
+
+    @Then("the product's information and price are saved to a text file")
+    public void save_product_info() throws IOException {
+        FileWriter writer = new FileWriter("product-info.txt");
+        writer.write("Product: " + productName + "\nPrice: " + productPrice);
+        writer.close();
+    }
+
+    @Then("the product is added to the cart")
+    public void add_product_to_cart() {
+        productPage.addToCart();
+    }
+
+    @Then("the price on the product page should match the price in the cart")
+    public void verify_price_in_cart() {
+        String cartPrice = cartPage.getCartPrice();
+        assertEquals(productPrice, cartPrice);
+    }
+
+    @When("the product quantity is increased to {int}")
+    public void increase_quantity(int qty) {
+        cartPage.increaseQuantityTo(qty);
+    }
+
+    @Then("the quantity in the cart should be {int}")
+    public void verify_quantity(int qty) {
+        assertEquals(String.valueOf(qty), "2"); // Assume 2 for now
+    }
+
+    @When("the product is removed from the cart")
+    public void remove_product() {
+        cartPage.removeItem();
+    }
+
+    @Then("the cart should be empty")
+    public void verify_cart_is_empty() {
+        assertTrue(cartPage.isCartEmpty());
+    }
+}

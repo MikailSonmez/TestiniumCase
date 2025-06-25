@@ -1,0 +1,16 @@
+package utils;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
+public class LogHelper {
+    private static boolean isConfigured = false;
+
+    public static Logger getLogger(Class<?> clazz) {
+        if (!isConfigured) {
+            PropertyConfigurator.configure("src/test/resources/log4j.properties");
+            isConfigured = true;
+        }
+        return Logger.getLogger(clazz);
+    }
+}
