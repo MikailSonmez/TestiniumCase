@@ -5,9 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
     WebDriver driver;
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     @FindBy(xpath = "//span[@class='layout-header-action-search__content']")
     WebElement searchBox;
@@ -47,7 +52,8 @@ public class HomePage {
         searchBox.clear();
     }
 
-    public void acceptCookies() {
+    public void acceptCookies() throws InterruptedException {
+        Thread.sleep(3000);
         if (acceptCookiesButton.isDisplayed()) {
             acceptCookiesButton.click();
         }

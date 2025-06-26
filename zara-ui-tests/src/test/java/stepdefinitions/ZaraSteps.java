@@ -2,6 +2,8 @@ package stepdefinitions;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ProductPage;
@@ -12,6 +14,7 @@ import utils.ExcelReader;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Duration;
 
 import static org.junit.Assert.*;
 
@@ -22,6 +25,7 @@ public class ZaraSteps {
     CartPage cartPage = new CartPage(driver);
     String productName;
     String productPrice;
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     @Given("the user navigates to the Zara website")
     public void the_user_navigates_to_the_Zara_website() {
@@ -32,7 +36,7 @@ public class ZaraSteps {
 
     }
     @And("accepts cookies")
-    public void acceptsCookies() {
+    public void acceptsCookies() throws InterruptedException {
         HomePage homePage = new HomePage(DriverManager.getDriver());
         homePage.acceptCookies();
     }
