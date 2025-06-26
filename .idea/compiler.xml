@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="zara-ui-tests" />
         <module name="trello-api-tests" />
+        <module name="zara-ui-tests (1)" />
+        <module name="zara-ui-tests (2)" />
       </profile>
     </annotationProcessing>
   </component>

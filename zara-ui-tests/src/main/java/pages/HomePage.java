@@ -9,16 +9,16 @@ import org.openqa.selenium.Keys;
 public class HomePage {
     WebDriver driver;
 
-    @FindBy(css = "input.search-products-input")
+    @FindBy(xpath = "//span[@class='layout-header-action-search__content']")
     WebElement searchBox;
 
-    @FindBy(css = "button.menu-button")
+    @FindBy(xpath = "//button[@aria-label='Menüyü aç']//*[name()='svg']")
     WebElement menuButton;
 
-    @FindBy(xpath = "//a[text()='Men']")
+    @FindBy(xpath = "//span[text()='ERKEK']")
     WebElement menLink;
 
-    @FindBy(xpath = "//a[text()='See All']")
+    @FindBy(xpath = "//span[normalize-space()='TÜMÜNÜ GÖR']")
     WebElement seeAllLink;
 
     @FindBy(id = "onetrust-accept-btn-handler")

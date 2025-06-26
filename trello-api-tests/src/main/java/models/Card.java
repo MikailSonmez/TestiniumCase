@@ -3,7 +3,7 @@ package models;
 public class Card {
     private String id;
     private String name;
-    private String idList; // List ID where card belongs
+    private String idList;
 
     public Card() {}
 

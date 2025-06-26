@@ -8,19 +8,19 @@ import org.openqa.selenium.support.PageFactory;
 public class CartPage {
     WebDriver driver;
 
-    @FindBy(css = "span.cart-price")
+    @FindBy(xpath = "//div[@class='money-amount']")
     WebElement cartPrice;
 
     @FindBy(css = "input.quantity-input")
     WebElement quantityInput;
 
-    @FindBy(css = "button.increase-qty")
+    @FindBy(css = "div[aria-label='Bir birim daha ekle - DOKULU POLO T-SHIRT'] svg")
     WebElement increaseQtyButton;
 
-    @FindBy(css = "button.remove-item")
+    @FindBy(css = "button[aria-label='Ürünü sil'] span")
     WebElement removeItemButton;
 
-    @FindBy(css = "div.empty-cart-message")
+    @FindBy(css = "div[class='zds-empty-state__title'] span")
     WebElement emptyCartMessage;
 
     public CartPage(WebDriver driver) {
@@ -33,7 +33,7 @@ public class CartPage {
     }
 
     public void increaseQuantityTo(int quantity) {
-        while (Integer.parseInt(quantityInput.getAttribute("value")) < quantity) {
+        while (Integer.parseInt(quantityInput.getAttribute("2")) < quantity) {
             increaseQtyButton.click();
         }
     }

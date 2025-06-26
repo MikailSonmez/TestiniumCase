@@ -11,17 +11,23 @@ import java.util.Random;
 public class ProductPage {
     WebDriver driver;
 
-    @FindBy(css = "div.product-grid-product")
+    @FindBy(className = "media-image__image media__wrapper--media")
     List<WebElement> productList;
 
-    @FindBy(css = "h1.product-name")
+    @FindBy(className = "product-detail-info__header-name")
     WebElement productName;
 
-    @FindBy(css = "span.price-current")
+    @FindBy(className = "money-amount__main")
     WebElement productPrice;
 
-    @FindBy(css = "button.add-to-cart")
+    @FindBy(xpath = "//button[@aria-label='Ekle DOKULU POLO T-SHIRT']")
     WebElement addToCartButton;
+
+    @FindBy(xpath = "//div[normalize-space()='S (US S)']")
+    WebElement selectSmallSizeButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Alışveriş sepetini gör')]")
+    WebElement lookAtCart;
 
     public ProductPage(WebDriver driver) {
         this.driver = driver;
@@ -44,5 +50,7 @@ public class ProductPage {
 
     public void addToCart() {
         addToCartButton.click();
+        selectSmallSizeButton.click();
+        lookAtCart.click();
     }
 }

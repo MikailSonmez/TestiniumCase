@@ -42,6 +42,7 @@ public class LoginPage {
         emailInput.sendKeys(email);
         passwordInput.click();
         passwordInput.sendKeys(password);
+        Thread.sleep(5000);
         loginButton.click();
     }
 }
