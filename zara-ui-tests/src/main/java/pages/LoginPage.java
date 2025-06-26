@@ -6,11 +6,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.logging.log4j.Logger;
+import utils.LogHelper;
 
 import java.time.Duration;
 
 public class LoginPage {
     WebDriver driver;
+    Logger log = LogHelper.getLogger(LoginPage.class);
 
     @FindBy(id = "zds-:r5:")
     WebElement emailInput;
@@ -40,9 +43,12 @@ public class LoginPage {
         wait.until(ExpectedConditions.visibilityOf(emailInput));
         emailInput.click();
         emailInput.sendKeys(email);
+        log.info("Attempting login with email: {}", email);
         passwordInput.click();
         passwordInput.sendKeys(password);
+        log.debug("Password field is set.");
         Thread.sleep(5000);
         loginButton.click();
+
     }
 }

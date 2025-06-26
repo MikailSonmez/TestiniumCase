@@ -1,0 +1,19 @@
+2025-06-26 13:52:17 [main] INFO  stepdefinitions.TrelloSteps - Trello API key and token are assumed to be configured.
+2025-06-26 13:52:17 [main] INFO  stepdefinitions.TrelloSteps - Creating a new Trello board...
+2025-06-26 13:52:19 [main] INFO  stepdefinitions.TrelloSteps - New board created with ID: 685d2664186413dad4d1b71f
+2025-06-26 13:52:19 [main] INFO  stepdefinitions.TrelloSteps - Adding two cards to the board...
+2025-06-26 13:52:19 [main] INFO  stepdefinitions.TrelloSteps - Retrieving default list ID for board: 685d2664186413dad4d1b71f
+2025-06-26 13:52:20 [main] INFO  stepdefinitions.TrelloSteps - Default list ID retrieved: 685d2664186413dad4d1b763
+2025-06-26 13:52:20 [main] INFO  stepdefinitions.TrelloSteps - Card 1 added with ID: 685d26658ab9407eb0d6b81a
+2025-06-26 13:52:20 [main] INFO  stepdefinitions.TrelloSteps - Retrieving default list ID for board: 685d2664186413dad4d1b71f
+2025-06-26 13:52:20 [main] INFO  stepdefinitions.TrelloSteps - Default list ID retrieved: 685d2664186413dad4d1b763
+2025-06-26 13:52:21 [main] INFO  stepdefinitions.TrelloSteps - Card 2 added with ID: 685d2666de13f2a53fc0402b
+2025-06-26 13:52:21 [main] INFO  stepdefinitions.TrelloSteps - Total cards added: 2
+2025-06-26 13:52:21 [main] INFO  stepdefinitions.TrelloSteps - Randomly selected card ID for update: 685d2666de13f2a53fc0402b
+2025-06-26 13:52:21 [main] INFO  stepdefinitions.TrelloSteps - Card updated successfully. New name: Updated Card Name
+2025-06-26 13:52:21 [main] INFO  stepdefinitions.TrelloSteps - Deleting all created cards...
+2025-06-26 13:52:22 [main] INFO  stepdefinitions.TrelloSteps - Deleted card ID: 685d26658ab9407eb0d6b81a
+2025-06-26 13:52:23 [main] INFO  stepdefinitions.TrelloSteps - Deleted card ID: 685d2666de13f2a53fc0402b
+2025-06-26 13:52:23 [main] INFO  stepdefinitions.TrelloSteps - All cards deleted and card list cleared.
+2025-06-26 13:52:23 [main] INFO  stepdefinitions.TrelloSteps - Deleting the board with ID: 685d2664186413dad4d1b71f
+2025-06-26 13:52:24 [main] INFO  stepdefinitions.TrelloSteps - Board deleted successfully.
