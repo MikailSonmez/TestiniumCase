@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="7.963" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Trello Board and Card API Operations" name="Create board, add cards, update and delete" time="7.857">
+<testsuite name="Cucumber" time="6.791" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Trello Board and Card API Operations" name="Create board, add cards, update and delete" time="6.688">
 <system-out><![CDATA[
 Given the Trello API key and token are configured...........................passed
 When a new board is created via Trello API..................................passed

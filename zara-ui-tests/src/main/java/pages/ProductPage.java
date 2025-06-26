@@ -11,7 +11,7 @@ import java.util.Random;
 public class ProductPage {
     WebDriver driver;
 
-    @FindBy(className = "media-image__image media__wrapper--media")
+    @FindBy(className = "media-image__image")
     List<WebElement> productList;
 
     @FindBy(className = "product-detail-info__header-name")

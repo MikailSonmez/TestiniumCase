@@ -109,7 +109,6 @@
                         </goals>
                         <configuration>
                             <projectName>Zara Test Results</projectName>
-                            <reportOutputDirectory>${project.build.directory}/cucumber-html-reports</reportOutputDirectory>
                             <jsonFiles>
                                 <param>${project.build.directory}/cucumber.json</param>
                             </jsonFiles>
